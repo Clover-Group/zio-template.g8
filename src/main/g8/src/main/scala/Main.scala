@@ -1,24 +1,17 @@
-// A full working example on using ZIO bracket
+package hello
 
-import scalaz.zio.{App, Task, UIO}
-import java.io.{File, FileInputStream}
-import java.nio.charset.StandardCharsets
+import scalaz.zio.App
+import scalaz.zio.console.{putStrLn, getStrLn}
 
-object Main extends App {
+object MyApp extends App {
 
-  // run my bracket
   def run(args: List[String]) =
-    mybracket.orDie.const(0) 
+    myAppLogic.fold(_ => 1, _ => 0)
 
-  def closeStream(is: FileInputStream) =
-    UIO(is.close())
-
-  def convertBytes(is: FileInputStream) =
-    Task.effect(println(new String(is.readAllBytes(), StandardCharsets.UTF_8))) // Java 11+, since is.realAllBytes() won't compile on Java8
-
-  // mybracket is just a value. Won't execute anything here until interpreted
-  val mybracket: Task[Unit] = for {
-    file   <- Task(new File("/tmp/hello"))
-    string <- Task(new FileInputStream(file)).bracket(closeStream)(convertBytes)
-  } yield string           
+  val myAppLogic =
+    for {
+      _ <- putStrLn("Hello! What is your name?")
+      n <- getStrLn
+      _ <- putStrLn(s"Hello, ${n}, welcome to ZIO!")
+    } yield ()
 }

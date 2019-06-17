@@ -11,12 +11,10 @@
 > sbt new Clover-Group/zio-template.g8
 ``` 
 
-### Running 
+### Running hello world
 
-Create a text file /tmp/hello with few strings and do:
 ```bash 
-> runMain Main
+> runMain hello.Main
 ```
-This will run an example of ZIO bracket
 
 And go build the next great thing with ZIO!
