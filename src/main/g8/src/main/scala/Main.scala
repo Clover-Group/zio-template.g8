@@ -3,7 +3,7 @@ package hello
 import scalaz.zio.App
 import scalaz.zio.console.{putStrLn, getStrLn}
 
-object MyApp extends App {
+object Main extends App {
 
   def run(args: List[String]) =
     myAppLogic.fold(_ => 1, _ => 0)
