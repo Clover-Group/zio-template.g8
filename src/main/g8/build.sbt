@@ -35,7 +35,7 @@ scalacOptions := Seq(
   "-language:existentials",
   "-Yno-adapted-args",
   "-Ypartial-unification",
-  "-Xfatal-warnings",
+  //"-Xfatal-warnings",
   "-Xlint:-infer-any,_",
   "-Ywarn-value-discard",
   "-Ywarn-numeric-widen",

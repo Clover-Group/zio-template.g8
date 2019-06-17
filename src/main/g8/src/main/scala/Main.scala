@@ -12,6 +12,6 @@ object MyApp extends App {
     for {
       _ <- putStrLn("Hello! What is your name?")
       n <- getStrLn
-      _ <- putStrLn(s"Hello, $n,  welcome to ZIO!")
+      _ <- putStrLn(s"Hello, welcome to ZIO!")
     } yield ()
 }
