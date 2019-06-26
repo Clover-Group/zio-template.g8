@@ -1,7 +1,7 @@
 package hello
 
-import scalaz.zio.App
-import scalaz.zio.console.{putStrLn, getStrLn}
+import zio.App
+import zio.console.{putStrLn, getStrLn}
 
 object Main extends App {
 
